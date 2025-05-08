@@ -31,7 +31,7 @@ tasks.test {
 }
 
 application {
-    mainClass.set("MainKt")
+    mainClass.set("org.example.MainKt")
 }
 
 kotlin {
