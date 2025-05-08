@@ -2,7 +2,7 @@ package transport
 
 import models.EvenType
 
-class EventDTO(
+data class EventDTO(
     val type: EvenType,
     val origin: Int?,
     val destination: Int?,
