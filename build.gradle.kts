@@ -34,6 +34,10 @@ application {
     mainClass.set("MainKt")
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
