@@ -3,7 +3,7 @@ package models
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonValue
 
-class Event(
+data class Event(
     val type: EvenType,
     val origin: Int?,
     val destination: Int?,

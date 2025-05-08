@@ -1,6 +1,6 @@
 package transport
 
-class AccountDTO (
+data class AccountDTO (
     val id: String,
     val balance: Double
 )

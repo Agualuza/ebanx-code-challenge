@@ -1,6 +1,6 @@
 package models
 
-class Account(
+data class Account(
     val id: Int,
     val balance: Double
 )
