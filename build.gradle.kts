@@ -42,6 +42,11 @@ tasks.register("stage") {
     dependsOn("build")
 }
 
+tasks.jar {
+    archiveBaseName.set("ebanx-code-challenge")
+    archiveVersion.set("1.0-SNAPSHOT")
+}
+
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
