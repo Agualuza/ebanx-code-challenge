@@ -38,6 +38,10 @@ kotlin {
     jvmToolchain(17)
 }
 
+tasks.register("stage") {
+    dependsOn("build")
+}
+
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
