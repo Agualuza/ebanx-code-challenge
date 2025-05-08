@@ -31,4 +31,12 @@ class AccountController(
         )
     }
 
+    suspend fun reset(call: ApplicationCall) {
+        accountService.resetAccounts()
+        call.respond(
+            HttpStatusCode.OK,
+            "OK"
+        )
+    }
+
 }

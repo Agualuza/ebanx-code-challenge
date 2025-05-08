@@ -14,4 +14,7 @@ object AccountStore {
 
     fun saveAccount(account: Account) =
         this.accounts.add(account)
+
+    fun clearAccounts() =
+        this.accounts.clear()
 }

@@ -6,4 +6,6 @@ interface AccountService {
     fun processEvent(event: Event): Boolean
 
     fun getBalance(id: Int) : Double
+
+    fun resetAccounts()
 }

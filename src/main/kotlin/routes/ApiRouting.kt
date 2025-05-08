@@ -20,5 +20,8 @@ fun Application.ApiRouting() {
             accountController.getBalance(call)
         }
 
+        post ("/reset") {
+            accountController.reset(call)
+        }
     }
 }

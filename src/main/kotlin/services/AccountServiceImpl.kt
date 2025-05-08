@@ -17,6 +17,9 @@ class AccountServiceImpl: AccountService {
     override fun getBalance(id: Int) =
         AccountStore.getAccountById(id)?.balance ?: throw NotFoundException()
 
+    override fun resetAccounts() =
+        AccountStore.clearAccounts()
+
     private fun handleDeposit(event: Event) =
         AccountStore.getAccountById(event.destination!!)?.let { account ->
             createTransaction(event.destination!!, account.balance + event.amount )
