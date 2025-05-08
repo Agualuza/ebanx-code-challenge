@@ -59,11 +59,11 @@ class AccountController(
 
     private fun getFormattedResponse(eventDTO: EventDTO) =
         when (eventDTO.type) {
-            EvenType.DEPOSIT -> AccountResponse(destination = AccountDTO(eventDTO.destination!!, accountService.getBalance(eventDTO.destination!!)))
-            EvenType.WITHDRAW -> AccountResponse(origin = AccountDTO(eventDTO.origin!!, accountService.getBalance(eventDTO.origin!!)))
+            EvenType.DEPOSIT -> AccountResponse(destination = AccountDTO(eventDTO.destination!!.toString(), accountService.getBalance(eventDTO.destination!!)))
+            EvenType.WITHDRAW -> AccountResponse(origin = AccountDTO(eventDTO.origin!!.toString(), accountService.getBalance(eventDTO.origin!!)))
             EvenType.TRANSFER -> AccountResponse(
-                origin = AccountDTO(eventDTO.origin!!, accountService.getBalance(eventDTO.origin!!)),
-                destination = AccountDTO(eventDTO.destination!!, accountService.getBalance(eventDTO.destination!!))
+                origin = AccountDTO(eventDTO.origin!!.toString(), accountService.getBalance(eventDTO.origin!!)),
+                destination = AccountDTO(eventDTO.destination!!.toString(), accountService.getBalance(eventDTO.destination!!))
             )
         }
 
