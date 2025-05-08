@@ -9,13 +9,15 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.routing
 import io.ktor.server.routing.get
 import io.ktor.server.routing.post
-import models.Event
+import org.koin.ktor.ext.inject
 
 fun Application.ApiRouting() {
     routing {
-        val eventController = EventController()
+        val eventController by inject<EventController>()
+
         post ("/event") {
             eventController.processEvent(call)
         }
+        
     }
 }

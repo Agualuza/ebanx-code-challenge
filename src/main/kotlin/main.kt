@@ -5,6 +5,7 @@ import routes.ApiRouting
 fun main() {
     embeddedServer(Netty, port = 8080) {
         configureSerialization()
+        configureModules()
         ApiRouting()
     }.start(wait = true)
 }

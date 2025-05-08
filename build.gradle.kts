@@ -20,6 +20,9 @@ dependencies {
     implementation("io.ktor:ktor-serialization-jackson:2.3.4")
     implementation("org.slf4j:slf4j-api:2.0.0")
     implementation("org.slf4j:slf4j-simple:2.0.0")
+    implementation("io.insert-koin:koin-core:3.5.3")
+    implementation("io.insert-koin:koin-ktor:3.5.3")
+    implementation("io.insert-koin:koin-logger-slf4j:3.5.3")
     testImplementation(kotlin("test"))
 }
 
