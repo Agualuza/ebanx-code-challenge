@@ -5,7 +5,10 @@ import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
+import models.EvenType
 import services.AccountService
+import transport.AccountDTO
+import transport.AccountResponse
 import transport.EventDTO
 
 class AccountController(
@@ -17,8 +20,8 @@ class AccountController(
 
         accountService.processEvent(event)
         call.respond(
-            HttpStatusCode.OK,
-            event
+            HttpStatusCode.Created,
+            getFormattedResponse(eventDTO)
         )
     }
 
@@ -38,5 +41,16 @@ class AccountController(
             "OK"
         )
     }
+
+    private fun getFormattedResponse(eventDTO: EventDTO) =
+        when (eventDTO.type) {
+            EvenType.DEPOSIT -> AccountResponse(destination = AccountDTO(eventDTO.destination!!, accountService.getBalance(eventDTO.destination!!)))
+            EvenType.WITHDRAW -> AccountResponse(origin = AccountDTO(eventDTO.origin!!, accountService.getBalance(eventDTO.origin!!)))
+            EvenType.TRANSFER -> AccountResponse(
+                origin = AccountDTO(eventDTO.origin!!, accountService.getBalance(eventDTO.origin!!)),
+                destination = AccountDTO(eventDTO.destination!!, accountService.getBalance(eventDTO.destination!!))
+            )
+        }
+
 
 }
