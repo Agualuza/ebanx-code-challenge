@@ -1,0 +1,46 @@
+# Gradle
+.gradle/
+build/
+
+# Kotlin
+out/
+
+# Ktor server (logs, temp files, etc)
+logs/
+tmp/
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local configuration files
+*.env
+*.local
+
+# Dependency directories
+**/node_modules/
+
+# JetBrains Kotlin plugin
+.kotlinc/
+
+# Gradle wrapper files
+gradle-wrapper.jar
+gradle-wrapper.properties
+
+# Dependency cache
+.gradle/
+
+# Java
+*.class
+*.log
+
+# MacOS
+*.swp
+*.swo
