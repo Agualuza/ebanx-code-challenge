@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonValue
 
 class Event(
-    type: EvenType,
-    origin: Int?,
-    destination: Int?,
-    amount: Double
+    val type: EvenType,
+    val origin: Int?,
+    val destination: Int?,
+    val amount: Double
 )
 
 enum class EvenType {
