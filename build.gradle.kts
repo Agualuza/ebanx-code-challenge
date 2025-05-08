@@ -23,6 +23,8 @@ dependencies {
     implementation("io.insert-koin:koin-core:3.5.3")
     implementation("io.insert-koin:koin-ktor:3.5.3")
     implementation("io.insert-koin:koin-logger-slf4j:3.5.3")
+    testImplementation("io.ktor:ktor-server-tests:2.3.4")
+    testImplementation("io.mockk:mockk:1.13.9")
     testImplementation(kotlin("test"))
 }
 
