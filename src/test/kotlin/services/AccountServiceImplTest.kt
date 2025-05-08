@@ -1,3 +1,5 @@
+package services
+
 import io.ktor.server.plugins.*
 import models.Account
 import models.EvenType
@@ -5,7 +7,6 @@ import models.Event
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import services.AccountServiceImpl
 import store.AccountStore
 import kotlin.test.assertEquals
 
