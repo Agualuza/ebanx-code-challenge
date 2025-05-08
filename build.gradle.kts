@@ -47,7 +47,7 @@ kotlin {
 }
 
 tasks.register("stage") {
-    dependsOn("build")
+    dependsOn("fatJar")
 }
 
 tasks.jar {
