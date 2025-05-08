@@ -34,6 +34,14 @@ application {
     mainClass.set("MainKt")
 }
 
+tasks.withType<Jar> {
+    manifest {
+        attributes(
+            "Main-Class" to "MainKt"
+        )
+    }
+}
+
 kotlin {
     jvmToolchain(17)
 }
@@ -45,6 +53,22 @@ tasks.register("stage") {
 tasks.jar {
     archiveBaseName.set("ebanx-code-challenge")
     archiveVersion.set("1.0-SNAPSHOT")
+}
+
+tasks.register<Jar>("fatJar") {
+    archiveBaseName.set("ebanx-code-challenge")
+    archiveVersion.set("1.0-SNAPSHOT")
+
+    manifest {
+        attributes["Main-Class"] = "MainKt"
+    }
+
+    val dependencies = configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) }
+
+    from(sourceSets.main.get().output)
+    from(dependencies)
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 tasks.withType<KotlinCompile> {
