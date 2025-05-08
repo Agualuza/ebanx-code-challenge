@@ -6,13 +6,16 @@ import models.EvenType
 import models.Event
 import store.AccountStore
 
-class EventServiceImpl: EventService {
-    override fun process(event: Event) =
+class AccountServiceImpl: AccountService {
+    override fun processEvent(event: Event) =
         when (event.type) {
             EvenType.DEPOSIT -> handleDeposit(event)
             EvenType.WITHDRAW -> handleWithdraw(event)
             EvenType.TRANSFER -> handleTransfer(event)
         }
+
+    override fun getBalance(id: Int) =
+        AccountStore.getAccountById(id)?.balance ?: throw NotFoundException()
 
     private fun handleDeposit(event: Event) =
         AccountStore.getAccountById(event.destination!!)?.let { account ->

@@ -1,9 +1,9 @@
-import controllers.EventController
+import controllers.AccountController
 import org.koin.dsl.module
-import services.EventService
-import services.EventServiceImpl
+import services.AccountService
+import services.AccountServiceImpl
 
 val appModule = module {
-    single<EventService> { EventServiceImpl() }
-    single { EventController(get()) }
+    single<AccountService> { AccountServiceImpl() }
+    single { AccountController(get()) }
 }
