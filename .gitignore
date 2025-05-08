@@ -34,8 +34,6 @@ Thumbs.db
 gradle-wrapper.jar
 gradle-wrapper.properties
 
-# Dependency cache
-.gradle/
 
 # Java
 *.class
