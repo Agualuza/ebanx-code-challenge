@@ -1,5 +1,6 @@
 package routes
 
+import controllers.EventController
 import io.ktor.http.*
 import io.ktor.server.application.Application
 import io.ktor.server.application.call
@@ -12,12 +13,9 @@ import models.Event
 
 fun Application.ApiRouting() {
     routing {
-        post ("/") {
-            val event = call.receive<Event>()
-            call.respond(
-                HttpStatusCode.OK,
-                event
-            )
+        val eventController = EventController()
+        post ("/event") {
+            eventController.processEvent(call)
         }
     }
 }
