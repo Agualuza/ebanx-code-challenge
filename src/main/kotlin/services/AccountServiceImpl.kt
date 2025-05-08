@@ -36,7 +36,10 @@ class AccountServiceImpl: AccountService {
                 createTransaction(originAccount.id, originAccount.balance - event.amount)
                 createTransaction(destinationAccount.id, destinationAccount.balance + event.amount)
 
-            } ?: throw NotFoundException()
+            } ?: run {
+                createTransaction(originAccount.id, originAccount.balance - event.amount)
+                AccountStore.saveAccount(Account(event.destination, event.amount))
+            }
         } ?: throw NotFoundException()
 
     private fun createTransaction(id: Int, balance: Double) =
