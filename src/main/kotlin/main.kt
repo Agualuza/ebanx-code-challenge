@@ -1,7 +1,3 @@
-package org.example
-
-import configureModules
-import configureSerialization
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import routes.ApiRouting
