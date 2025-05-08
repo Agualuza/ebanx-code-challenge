@@ -3,7 +3,7 @@ import io.ktor.server.netty.Netty
 import routes.ApiRouting
 
 fun main() {
-    embeddedServer(Netty, port = 8080) {
+    embeddedServer(Netty, port = System.getenv("PORT")?.toIntOrNull() ?: 8080) {
         configureSerialization()
         configureModules()
         ApiRouting()
