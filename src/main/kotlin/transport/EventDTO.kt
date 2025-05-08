@@ -2,7 +2,7 @@ package transport
 
 import models.EvenType
 
-class EventRequest(
+class EventDTO(
     val type: EvenType,
     val origin: Int?,
     val destination: Int?,
