@@ -18,6 +18,8 @@ dependencies {
     implementation("io.ktor:ktor-server-html-builder:2.3.4")
     implementation("io.ktor:ktor-server-content-negotiation:2.3.4")
     implementation("io.ktor:ktor-serialization-jackson:2.3.4")
+    implementation("org.slf4j:slf4j-api:2.0.0")
+    implementation("org.slf4j:slf4j-simple:2.0.0")
     testImplementation(kotlin("test"))
 }
 
